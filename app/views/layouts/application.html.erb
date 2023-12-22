@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= favicon_link_tag asset_path('ringlogo.png'), :rel => 'icon', :type =>  'image/png' %>
+    <% keywords 'Independent Publishers in NY, Publishing NYC, Print Shops NY, Always Leave the First Page Blank, Flyleaf, Small Print Presses, Printed Matter, Curator, Curatorial Collectives' %>
+    <%= stylesheet_link_tag 'application', media: 'all'%>
+  </head>
+
+  <body>
+
+    <header>
+      <%= link_to image_tag('logo.png'), root_path, class: "logo"%>
+      <%= link_to 'ALTFPB', root_path, class: "menu-logo"%>
+      <%= link_to image_tag('menu.svg'), "#", class: "menu"%>
+      <nav>
+        <%= link_to 'Books', products_path %>
+        <%= link_to 'Artists', artists_path %>
+        <%= link_to 'About', about_path %>
+        <%= link_to image_tag('asterisk-filled.png'), "#", class: "splitswitch"%>
+      </nav>
+    </header>
+
+      <section class='menu show-menu'>
+        <div>
+          <%= link_to 'Books', products_path %>
+          <%= link_to 'Artists', artists_path %>
+          <%= link_to 'About', about_path %>
+          <%= mail_to "yo@flyleaf.org", "Email" %>
+          <%= link_to 'Follow Us', 'http://www.instagram.com/alwaysleavethefirstpageblank.com/', target: :_blank %>
+        </div>
+      </section>
+
+
+
+    <!-- <div class="search">
+      <form action="">
+        <input type="text" name="q" value="<%= params[:q] %>" placeholder="SEARCH . . .">
+      </form>
+    </div> -->
+
+
+
+
+
+    <%= yield %>
+
+
+    <div class='cursor'></div>
+    <section class="split"></section>
+    <%= javascript_include_tag 'application' %>
+  </body>
+</html>

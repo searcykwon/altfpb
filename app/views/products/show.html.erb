@@ -1,0 +1,114 @@
+<section class="product">
+  <div class="content">
+    <%= image_tag @product.image_1.large.url %>
+
+    <% if @product.image_2.present? %>
+      <%= image_tag @product.image_2.large.url %>
+    <% end %>
+
+    <% if @product.image_3.present? %>
+        <%= image_tag @product.image_3.large.url %>
+    <% end %>
+
+    <% if @product.image_4.present? %>
+        <%= image_tag @product.image_4.large.url %>
+    <% end %>
+
+    <% if @product.image_5.present? %>
+        <%= image_tag @product.image_5.large.url %>
+    <% end %>
+    <div class='navlinks'>
+      <% if @prev %>
+        <%= link_to "Previous", @prev %>
+      <% else %>
+        <%= link_to "Previous", '#', :class => "strike"%>
+      <% end %>
+
+      <%= link_to "All Books", products_path%>
+
+      <% if @next %>
+        <%= link_to "Next", @next %>
+      <% else %>
+        <%= link_to "Next", '#', :class => "strike" %>
+      <% end %>
+    </div>
+</div>
+
+  <div class="info">
+      <table>
+      <tr>
+        <td> <p> Title: </p> </td>
+        <td> <h4><%= @product.title %> </h4> </td>
+      </tr>
+      <tr>
+        <td> <p> Author: </p> </td>
+        <td> <h4><%= @product.author %> </h4> </td>
+      </tr>
+      <tr>
+        <td> <p> Description: </p> </td>
+        <td> <h4><%= @product.description %> </h4> </td>
+      </tr>
+      <% if @product.printing_method.present?%>
+        <tr>
+          <td> <p> Printing Method: </p> </td>
+          <td> <h4><%= @product.printing_method %> </h4> </td>
+        </tr>
+      <% end %>
+      <% if @product.dimensions?%>
+        <tr>
+          <td> <p> Dimensions: </p> </td>
+          <td> <h4><%= @product.dimensions %> </h4> </td>
+        </tr>
+      <% end %>
+      <% if @product.pages?%>
+        <tr>
+          <td> <p> Pages: </p> </td>
+          <td> <h4><%= @product.pages%> </h4> </td>
+        </tr>
+      <% end %>
+      <tr>
+        <td> <p> Price: </p> </td>
+        <td> <h4><%= number_to_currency(@product.price, precision: 0) %> </h4> </td>
+      </tr>
+      <tr>
+        <td> <p> Where to Buy: </p> </td>
+        <td>
+          <h4> To purchase, please hit us at <%= mail_to 'yo@flyleaf.org', 'yo@flyleaf.org' %></h4>
+        </td>
+      </tr>
+      <tr class='mobile'>
+        
+          <td colspan="2"><% if @prev %>
+            <%= link_to "Previous", @prev %>
+          <% else %>
+            <%= link_to "Previous", '#', :class => "strike"%>
+          <% end %>
+
+          <%= link_to "All Books", products_path%>
+
+          <% if @next %>
+            <%= link_to "Next", @next %>
+          <% else %>
+            <%= link_to "Next", '#', :class => "strike" %>
+          <% end %></td>
+      </tr>
+
+    </table>
+
+    <div class='navlinks'>
+      <% if @prev %>
+        <%= link_to "Previous", @prev %>
+      <% else %>
+        <%= link_to "Previous", '#', :class => "strike"%>
+      <% end %>
+
+      <%= link_to "All Books", products_path%>
+
+      <% if @next %>
+        <%= link_to "Next", @next %>
+      <% else %>
+        <%= link_to "Next", '#', :class => "strike" %>
+      <% end %>
+    </div>
+  </div>
+</section>
